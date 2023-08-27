@@ -32,6 +32,7 @@ export interface ICharacter {
     episode: string[];
     url: string;
     created: string;
+    [key: string]: any;
 }
 
 export interface ICharacterApiResponse {
