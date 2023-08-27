@@ -8,6 +8,7 @@ import {ICharacter, ICharacterApiResponse, ILocation, ILocationApiResponse} from
 
 function* workGetLocationFetch(): SagaIterator {
     try {
+        yield delay(500)
         const response: AxiosResponse<ILocationApiResponse> = yield call(() => axios.get("https://rickandmortyapi.com/api/location"));
         const location: ILocation[] = response.data.results;
         yield put(getLocationSuccess(location));
@@ -18,6 +19,7 @@ function* workGetLocationFetch(): SagaIterator {
 
 function* workGetCharacterFetch(): SagaIterator {
     try {
+        yield delay(500)
         const response: AxiosResponse<ICharacterApiResponse> = yield call(() => axios.get("https://rickandmortyapi.com/api/character"));
         const character: ICharacter[] = response.data.results;
         yield put(getCharacterSuccess(character));
