@@ -20,11 +20,12 @@ const ApiSelector = ({selectLocations, selectCharacters, apiSelected}: IApiSelec
 
     return (
         <div className={styles.container}>
-            <select className={styles.selector} name="api" id="api" defaultValue="Locations" onChange={handleApiChange} value={apiSelected}>
+            <div className={styles.custom}>
+            <select name="api" id="api" defaultValue="Locations" onChange={handleApiChange} value={apiSelected}>
                 <option value="locations" >Locations</option>
                 <option value="characters">Characters</option>
             </select>
-            <span className={styles.arrow}></span>
+            </div>
         </div>
     );
 };

@@ -21,6 +21,15 @@
     height: 65px;
 }
 
+.head .cell {
+    cursor: pointer;
+}
+
+.head .cell:hover {
+    color: #2264E5;
+    transition: color 0.3s ease-out;
+}
+
 .row {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
@@ -55,4 +64,31 @@
     display: flex;
     max-width: 100px;
     align-items: center;
+}
+
+.button {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+}
+
+.descending {
+    background-image: url("../../images/downsort.svg");
+    background-position: center;
+
+}
+
+.ascending {
+    background-image: url("../../images/upsort.svg");
+    background-position: center;
+}
+
+.descending:hover {
+    background-image: url("../../images/downsorthover.svg");
+}
+
+.ascending:hover {
+    background-image: url("../../images/upsorthover.svg");
 }
