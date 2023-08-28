@@ -1,7 +1,7 @@
 import styles from "./ApiSelector.module.css"
-import React from "react";
+import React, {useState} from "react";
 
-interface IApiSelectorProps  {
+interface IApiSelectorProps {
     selectLocations: () => void;
     selectCharacters: () => void;
     apiSelected: string;
@@ -9,8 +9,9 @@ interface IApiSelectorProps  {
 
 const ApiSelector = ({selectLocations, selectCharacters, apiSelected}: IApiSelectorProps) => {
 
-    const handleApiChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        const selectedValue = event.target.value;
+    const [isOpen, setIsOpen] = useState<boolean>(false);
+
+    const handleApiChange = (selectedValue: string): void => {
         if (selectedValue === 'locations') {
             selectLocations();
         } else if (selectedValue === 'characters') {
@@ -18,14 +19,24 @@ const ApiSelector = ({selectLocations, selectCharacters, apiSelected}: IApiSelec
         }
     };
 
+    const handleToggle = (): void => {
+        setIsOpen(!isOpen);
+    };
+
+    const handleItemClick = (selectedValue: string): void => {
+        handleApiChange(selectedValue);
+        handleToggle();
+    };
+
     return (
         <div className={styles.container}>
-            <div className={styles.custom}>
-            <select name="api" id="api" defaultValue="Locations" onChange={handleApiChange} value={apiSelected}>
-                <option value="locations" >Locations</option>
-                <option value="characters">Characters</option>
-            </select>
+            <div className={styles.selector} onClick={handleToggle}>
+                {apiSelected === 'locations' ? 'Locations' : 'Characters'}
             </div>
+            <ul className={isOpen ? `${styles.dropdown} ${styles.open}` : `${styles.dropdown}`}>
+                <li className={styles.option} onClick={() => handleItemClick('locations')}>Locations</li>
+                <li className={styles.option} onClick={() => handleItemClick('characters')}>Characters</li>
+            </ul>
         </div>
     );
 };

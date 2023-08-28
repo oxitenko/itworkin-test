@@ -11,55 +11,74 @@
     box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.08), 0px 1px 4px 0px rgba(69, 75, 87, 0.12), 0px 0px 0px 1px rgba(152, 161, 178, 0.10);
 }
 
-select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -ms-appearance: none;
-    appearance: none;
-    outline: 0;
-    box-shadow: none;
-    border:0;
-    background-color: rgba(244, 247, 252, 0.75);
-    background-image: none;
-    flex: 1;
-    padding: 0 .5em;
-    color: #687182;
+.selector {
+    position: relative;
+    display: flex;
+    width: 120px;
+    height: 3em;
+    background: rgba(244, 247, 252, 0.75);
     cursor: pointer;
+    align-items: center;
+    padding: 6px 8px;
     font-family: 'Inter', sans-serif;
-    font-size: 12px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0.28px;
+    color: #464F60;
+}
+
+.selector::after {
+    content: url("../../images/down.svg");
+    position: absolute;
+    top: 14px;
+    right: 10px;
+    cursor: pointer;
+    pointer-events: none;
+}
+
+.dropdown {
+    visibility: hidden;
+    transition: visibility 0.3s ease-in-out;
+    width: 120px;
+    border-radius: 6px;
+    background-color: #fff;
+    position: absolute;
+    top: 3em;
+    gap: 4px;
+    padding: 8px 4px;
+    display: flex;
+    z-index: 1;
+    flex-direction: column;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
     font-style: normal;
     font-weight: 500;
     line-height: 18px;
     letter-spacing: 0.36px;
+    box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.08), 0px 15px 35px -5px rgba(17, 24, 38, 0.20), 0px 0px 0px 1px rgba(152, 161, 178, 0.10);
 }
 
-select::-ms-expand {
-    display: none;
+.open {
+    visibility: visible;
 }
 
-.custom {
-    position: relative;
-    display: flex;
-    width: 108px;
-    height: 86px;
-    line-height: 3;
-    background: #fff;
-    overflow: hidden;
-    border-radius: .25em;
+.option {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0.28px;
+    color: #464F60;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 2px;
 }
 
-.custom::after {
-    content: '\25BC';
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 0 1em;
-    background: #2b2e2e;
-    cursor:pointer;
-    pointer-events:none;
-    transition:.25s all ease;
-}
-
-.custom:hover::after {
-    color: #23b499;
+.option:hover {
+    background-color: #2264E5;
+    color: #fff;
+    transition: background-color 0.3s ease-out;
 }
