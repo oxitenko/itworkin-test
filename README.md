@@ -1,6 +1,6 @@
 # Тестовое задание для Frontend стажера в Itworkin
 
-Ссылка на стенд:
+Ссылка на стенд: https://oxitenko.github.io/itworkin-test/
 
 #
 
