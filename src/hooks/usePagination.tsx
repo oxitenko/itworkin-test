@@ -1,11 +1,8 @@
-import { useState } from "react";
+import {useState} from "react";
+import {IUsePaginationProps} from "../types";
 
-interface IUsePaginationProps {
-    contentPerPage: number;
-    count: number;
-}
 
-const usePagination = ({ contentPerPage, count }: IUsePaginationProps) => {
+const usePagination = ({contentPerPage, count}: IUsePaginationProps) => {
     //contentPerPage сколько элементов должно отображаться за один раз на странице
     //count длина массива
 

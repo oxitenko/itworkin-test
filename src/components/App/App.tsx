@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import './App.css';
 import Table from "../Table/Table";
 import {useDispatch, useSelector} from "react-redux";
 import {getLocationFetch} from "../../redux/locationState";
@@ -16,12 +15,12 @@ function App() {
     const locationLoad = useSelector((state: RootState) => state.location.isLoading);
     const characterLoad = useSelector((state: RootState) => state.character.isLoading);
 
-    const selectLocations = () => {
+    const selectLocations = (): void => {
         dispatch(getLocationFetch());
         setApiSelected("locations")
     }
 
-    const selectCharacters = () => {
+    const selectCharacters = (): void => {
         dispatch(getCharacterFetch());
         setApiSelected("characters")
     }
@@ -33,7 +32,7 @@ function App() {
     return (
        locationLoad || characterLoad ?
         <Loader/> :
-        <main className="App">
+        <main>
             <ApiSelector apiSelected={apiSelected} selectLocations={selectLocations} selectCharacters={selectCharacters}/>
             <Table apiSelected={apiSelected}/>
         </main>

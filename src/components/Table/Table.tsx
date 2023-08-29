@@ -4,10 +4,8 @@ import {RootState} from "../../index";
 import Pagination from "../Pagination/Pagination";
 import usePagination from "../../hooks/usePagination";
 import React, {useState} from "react";
+import {ITableProps} from "../../types";
 
-interface ITableProps {
-    apiSelected: string;
-}
 
 const Table = ({apiSelected}: ITableProps) => {
 
@@ -40,14 +38,14 @@ const Table = ({apiSelected}: ITableProps) => {
     };
 
     //Создаем конфиг для сортировки
-    const [sortConfig, setSortConfig] = useState({ key: '', order: '' });
+    const [sortConfig, setSortConfig] = useState({key: '', order: ''});
     //Хэндлер сортировки: по возрастанию если ключи разные, по убыванию если ключи одинаковые
     const handleSort = (key: string) => {
         let order = 'ascending';
         if (sortConfig.key === key && sortConfig.order === 'ascending') {
             order = 'descending';
         }
-        setSortConfig({ key, order });
+        setSortConfig({key, order});
     };
     //Сортировка: получаем ключи объекта для сравнения, сравниваем ключи для сортировки по возрастанию и убыванию
     const sortedVisibleData = data
@@ -74,13 +72,13 @@ const Table = ({apiSelected}: ITableProps) => {
                             keys.map((item) =>
                                 (<li key={item} className={styles.cell}>
                                     {item}
-                                <button
-                                    onClick={() => handleSort(item)}
-                                    className={sortConfig.key === item && sortConfig.order === 'ascending'
-                                        ?`${styles.button} ${styles.descending}`
-                                        :`${styles.button} ${styles.ascending}`
-                                }>
-                                </button>
+                                    <button
+                                        onClick={() => handleSort(item)}
+                                        className={sortConfig.key === item && sortConfig.order === 'ascending'
+                                            ? `${styles.button} ${styles.descending}`
+                                            : `${styles.button} ${styles.ascending}`
+                                        }>
+                                    </button>
                                 </li>))}
                     </ul>
                 </div>

@@ -9,7 +9,6 @@ import rootSaga from "./saga/RootSaga";
 import locationReducer from "./redux/locationState";
 import characterReducer from "./redux/characterState";
 
-
 const saga = createSagaMiddleware();
 const store = configureStore({
     reducer: {

@@ -1,11 +1,8 @@
 import styles from "./ApiSelector.module.css"
 import React, {useState} from "react";
+import {IApiSelectorProps} from "../../types";
 
-interface IApiSelectorProps {
-    selectLocations: () => void;
-    selectCharacters: () => void;
-    apiSelected: string;
-}
+
 
 const ApiSelector = ({selectLocations, selectCharacters, apiSelected}: IApiSelectorProps) => {
 

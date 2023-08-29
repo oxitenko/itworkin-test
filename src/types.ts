@@ -50,3 +50,25 @@ export interface ICharacterState {
     error: string;
     isLoading: boolean;
 }
+
+export interface IApiSelectorProps {
+    selectLocations: () => void;
+    selectCharacters: () => void;
+    apiSelected: string;
+}
+
+export interface IPagination {
+    page: number;
+    totalPages: number;
+    prevPage: () => void;
+    nextPage: () => void;
+}
+
+export interface ITableProps {
+    apiSelected: string;
+}
+
+export interface IUsePaginationProps {
+    contentPerPage: number;
+    count: number;
+}
